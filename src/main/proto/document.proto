@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+// 👇 Tell protoc to generate classes in this Java package
+option java_multiple_files = true;
+option java_package = "com.example.grpc";
+option java_outer_classname = "DocumentProto";
+
+package document;
+
+service DocumentProcessor {
+  rpc Process (DocumentRequest) returns (DocumentResponse);
+}
+
+message DocumentRequest {
+  string documentId = 1;
+}
+
+message DocumentResponse {
+  string status = 1;
+}
